@@ -1,0 +1,29 @@
+apachephp53:
+  build: apache-php53/
+  ports:
+    - 8083:80
+  links:
+    - mysql
+  volumes:
+    - ./code:/var/www
+  environment:
+    <APP_SERVER_NAME>: dev-machine
+
+mysql:
+  image: mysql:latest
+  ports:
+   - 3306
+  environment:
+    MYSQL_DATABASE: database
+    MYSQL_USER: user
+    MYSQL_PASSWORD: password
+    MYSQL_ROOT_PASSWORD: rootPW
+  volumes_from:
+    - data
+  volumes:
+    - ./mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf
+
+data:
+  image: ubuntu:14.04
+  volumes:
+    - ./data/mysql:/var/lib/mysql
