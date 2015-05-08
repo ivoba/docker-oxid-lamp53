@@ -1,10 +1,8 @@
 FROM ubuntu:12.04
 MAINTAINER Ivo Bathke
 
-RUN apt-get update
-RUN apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y && apt-get install -y nano apache2 php5 php5-cli libapache2-mod-php5 php5-gd php5-json php5-mysql php5-mcrypt php5-curl
 
-RUN apt-get install -y nano apache2 php5 php5-cli libapache2-mod-php5 php5-gd php5-json php5-mysql php5-mcrypt
 
 ADD apache_default /etc/apache2/sites-available/default
 
