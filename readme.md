@@ -18,7 +18,8 @@ you will see the phpinfo() output.
 
 To test mysql run: http://127.0.0.1:8083/mysql.php  
 
-To add stuff to the apachephp53 container edit the Dockerfile and rebuild the container:
+Put your code in the code folder.  
+To add additional php-modules to the apachephp53 container edit the Dockerfile and rebuild the container:
 
     docker-compose build apachephp53 
 
@@ -35,7 +36,7 @@ Any hints on this are welcome :)
 
 ## Todo
 - log handling
-- fix mysql host access
+- find out how to have a fixed internal ip for mysql
 
 ## Credits
 I stole quit a lot from here

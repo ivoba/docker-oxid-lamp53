@@ -11,13 +11,13 @@ ADD ./ioncube/02_ioncube.ini /etc/php5/apache2/conf.d/02_ioncube.ini
 ADD ./zendguardloader/php-5.3.x/ZendGuardLoader.so /usr/lib/php5/20090626/ZendGuardLoader.so
 ADD ./zendguardloader/03_zendguardloader.ini /etc/php5/apache2/conf.d/03_zendguardloader.ini
 
-RUN a2enmod php5
-RUN a2enmod rewrite
 RUN sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/apache2/php.ini
 RUN sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/cli/php.ini
 RUN sed -ri 's/^error_reporting\s*=.*$/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_NOTICE/g' /etc/php5/apache2/php.ini
 RUN sed -ri 's/^error_reporting\s*=.*$/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_NOTICE/g' /etc/php5/cli/php.ini
 
+RUN a2enmod php5
+RUN a2enmod rewrite
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
