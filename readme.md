@@ -27,7 +27,7 @@ Mysql is configured to accept connections from outside, so we can have a mysql a
 I usually import inital data via Mysql Workbench.  
 Find the IP of the mysql container:
 
-    docker inspect $(docker ps -q)
+    docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}' $(docker ps -q)
 
 Add the IP as host and run Mysql Workbench.  
 This is still a bit cumbersome because the IP can change everytime you fire up the container.  
